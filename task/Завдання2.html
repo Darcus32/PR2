@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Завдання 2</title>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const formattedHours = hours < 10 ? "0" + hours : hours;
+            const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+            const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+            const clockDisplay = formattedHours + ":" + formattedMinutes + ":" + formattedSeconds;
+            document.getElementById("clock").textContent = clockDisplay;
+        }
+
+        function displayUpdateAlert() {
+            alert("Оновлення часу на веб-сторінці!");
+        }
+
+        setInterval(updateClock, 1000); 
+        updateClock(); 
+
+        setInterval(displayUpdateAlert, 30000);
+    </script>
+</body>
+</html>

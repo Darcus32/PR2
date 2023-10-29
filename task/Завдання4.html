@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Завдання 3</title>
+</head>
+<body>
+    <input type="number" id="bet" placeholder="Введіть вашу ставку">
+    <button id="play-button">Грати</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("play-button").addEventListener("click", function() {
+            const bet = parseFloat(document.getElementById("bet").value);
+
+            if (isNaN(bet) || bet <= 0) {
+                alert("Будь ласка, введіть правильну ставку.");
+                return;
+            }
+
+            setTimeout(function() {
+                const randomValue = Math.floor(Math.random() * 11) - 5; 
+                
+                if (randomValue <= 0) {
+                    document.getElementById("result").textContent = "Ви не вгадали і втратили свою ставку.";
+                } else {
+                    const winnings = bet * randomValue;
+                    document.getElementById("result").textContent = "Ви виграли " + winnings + " гривень!";
+                }
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Завдання 1</title>
+    </head>
+    <body>
+        <input type="text" id="chas" size="10">
+
+        <script>
+            function addLeadingZero(value) {
+                if (value < 10) {
+                    return "0" + value;
+                } else {
+                    return value.toString();
+                }
+            }
+
+            function time() {
+                let now = new Date();
+                let hours = addLeadingZero(now.getHours());
+                let minutes = addLeadingZero(now.getMinutes());
+                let seconds = addLeadingZero(now.getSeconds());
+
+                chas.value = hours + ":" + minutes + ":" + seconds;
+
+                setTimeout(time, 1000);
+            }
+
+            time();
+        </script>
+    </body>
+</html>

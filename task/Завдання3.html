@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Завдання 3</title>
+</head>
+<body>
+    <input type="text" id="user-input" placeholder="Введіть текст">
+    <button id="start-button">Почати друк</button>
+    <p><div id="printer-output"></div></p>
+
+    <script>
+        function simulateTyping(text, index, containerId) {
+            if (index < text.length) {
+                const container = document.getElementById(containerId);
+                container.textContent += text[index];
+                index++;
+                setTimeout(function() {
+                    simulateTyping(text, index, containerId);
+                }, 100); 
+            }
+        }
+
+        document.getElementById("start-button").addEventListener("click", function() {
+            const userText = document.getElementById("user-input").value;
+            const containerId = "printer-output";
+            document.getElementById(containerId).textContent = "";
+
+            simulateTyping(userText, 0, containerId);
+        });
+
+    </script>
+</body>
+</html>
